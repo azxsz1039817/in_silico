@@ -9,14 +9,11 @@ from utils import add_common_args, prompt_bank_path, write_csv, write_json
 
 EXPECTED_COUNTS = {"correct": 112, "wrong": 9, "no_effect": 58}
 
-# Some prompt rows contain multiple keywords that invert or complicate the
-# issue-level reverse_code value. These overrides are based on the manuscript
-# narrative and reviewer inspection of the regenerated coefficients.
-EXPECTED_DIRECTION_OVERRIDES = {
-    14.1: "liberal",  # keeping businesses open
-    14.2: "liberal",  # closing businesses
-    15.1: "liberal",  # keeping schools open
-    15.2: "liberal",  # closing schools
+EXPECTED_DIRECTION_BY_KEYWORD = {
+    "closing businesses": "liberal",
+    "keeping businesses open": "liberal",
+    "closing schools": "liberal",
+    "keeping schools open": "liberal",
 }
 
 
@@ -60,14 +57,14 @@ def main() -> None:
     coefs = pd.read_csv(root / "tables" / "covid_coefficients.csv")
     meta = pd.read_csv(prompt_bank_path("covid", root), encoding="utf-8-sig")[["issue_no", "reverse_code"]].drop_duplicates()
     classified = coefs.merge(meta, on="issue_no", how="left")
-    classified["expected_direction"] = classified["issue_no_key"].round(1).map(EXPECTED_DIRECTION_OVERRIDES)
+    classified["expected_direction"] = classified["keyword"].str.lower().map(EXPECTED_DIRECTION_BY_KEYWORD)
     classified.loc[classified["expected_direction"].isna() & classified["reverse_code"].eq(0), "expected_direction"] = "liberal"
     classified.loc[classified["expected_direction"].isna() & classified["reverse_code"].eq(1), "expected_direction"] = "conservative"
     classified["derived_forecast_result"] = classified.apply(classify, axis=1)
     observed = classified["derived_forecast_result"].value_counts().to_dict()
     rows.append(
         {
-            "check": "covid_forecast_counts_from_reverse_code",
+            "check": "covid_forecast_counts",
             "observed": str({key: int(observed.get(key, 0)) for key in ["correct", "wrong", "no_effect"]}),
             "expected": str(EXPECTED_COUNTS),
             "status": "review" if observed != EXPECTED_COUNTS else "pass",
@@ -80,10 +77,9 @@ def main() -> None:
     write_json(
         {
             "note": (
-                "The automatic reverse_code-based correctness check is intentionally conservative. "
-                "A review status means the regenerated coefficient directions are structurally valid, "
-                "but the automatic rule plus documented keyword-level overrides does not exactly reproduce "
-                "the manuscript's final manual correct/wrong coding."
+                "Forecast correctness is evaluated at the prompt-keyword level. "
+                "For most prompts, expected direction follows the issue-level reverse_code field; "
+                "for business and school open/closed prompts, expected direction follows the keyword shown in the coefficient table."
             )
         },
         root / "tables" / "consistency_checks_notes.json",

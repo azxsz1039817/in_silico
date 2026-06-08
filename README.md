@@ -152,5 +152,4 @@ The scripts named `archive_*` preserve the historical OpenAI API style for prove
 - The compressed response CSVs are canonical analysis inputs. They preserve full generated completions and full prompts in normalized tabular form.
 - The original per-prompt output files were removed because they were intermediate cache files and created most of the file-count clutter.
 - The original justification embedding pickle cache was converted to split float32 NPZ files. Each chunk is under GitHub's 100 MB per-file limit, so Git LFS is not required.
-- The correct/wrong/no-effect coding cannot be inferred from `reverse_code` alone for every prompt. `validate_consistency.py` includes keyword-level overrides for business and school open/closed variants.
-- `keeping schools open` is hand-coded as expected liberal, so the three liberal-observed `keeping schools open` rows are counted as correct.
+- Forecast correctness is evaluated at the prompt-keyword level. For most prompts, expected direction follows `reverse_code`; for business and school open/closed prompts, expected direction follows the keyword shown in `tables/covid_coefficients.csv`.

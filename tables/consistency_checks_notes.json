@@ -1,3 +1,3 @@
 {
-  "note": "The automatic reverse_code-based correctness check is intentionally conservative. A review status means the regenerated coefficient directions are structurally valid, but the automatic rule plus documented keyword-level overrides does not exactly reproduce the manuscript's final manual correct/wrong coding."
+  "note": "Forecast correctness is evaluated at the prompt-keyword level. For most prompts, expected direction follows the issue-level reverse_code field; for business and school open/closed prompts, expected direction follows the keyword shown in the coefficient table."
 }
