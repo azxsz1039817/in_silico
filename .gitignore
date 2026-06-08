@@ -1,0 +1,6 @@
+data/processed/
+data/raw/responses/*.csv
+data/raw/justifications/justification_texts.csv
+__pycache__/
+*.pyc
+.DS_Store

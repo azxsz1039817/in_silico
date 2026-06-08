@@ -1,0 +1,5 @@
+level,null_handling,correct,total,p_value_greater
+prompt,count_null_as_wrong,109,179,0.0021876867884501475
+prompt,exclude_null,109,121,4.934849370949138e-21
+issue,count_null_as_wrong,37,49,0.00023487865900406746
+issue,exclude_null,37,44,2.649790872055746e-06

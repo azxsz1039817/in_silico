@@ -1,0 +1,93 @@
+from __future__ import annotations
+
+import argparse
+
+import pandas as pd
+
+from utils import add_common_args, prompt_bank_path, write_csv, write_json
+
+
+MANUSCRIPT_COUNTS = {"correct": 109, "wrong": 12, "no_effect": 58}
+
+# Some prompt rows contain multiple keywords that invert or complicate the
+# issue-level reverse_code value. These overrides are based on the manuscript
+# narrative and reviewer inspection of the regenerated coefficients.
+EXPECTED_DIRECTION_OVERRIDES = {
+    14.1: "liberal",  # keeping businesses open
+    14.2: "liberal",  # closing businesses
+    15.2: "liberal",  # closing schools
+}
+
+
+def classify(row: pd.Series) -> str:
+    if row["direction"] == "no_effect":
+        return "no_effect"
+    expected = row.get("expected_direction")
+    if expected in {"liberal", "conservative"}:
+        return "correct" if row["direction"] == expected else "wrong"
+    if row["reverse_code"] == 0 and row["direction"] == "liberal":
+        return "correct"
+    if row["reverse_code"] == 1 and row["direction"] == "conservative":
+        return "correct"
+    return "wrong"
+
+
+def main() -> None:
+    parser = add_common_args(argparse.ArgumentParser(description="Validate regenerated outputs against manuscript-level consistency checks."))
+    args = parser.parse_args()
+    root = args.project_root
+
+    rows = []
+    for dataset, expected_rows, expected_prompts, expected_questions in [
+        ("covid", 179000, 358, 179),
+        ("validation", 143000, 286, 143),
+    ]:
+        responses = pd.read_csv(root / "data" / "processed" / f"{dataset}_responses.csv")
+        rows.append(
+            {
+                "check": f"{dataset}_response_shape",
+                "observed": f"{len(responses)} rows, {responses['prompt_no'].nunique()} prompts, {responses['question_no'].nunique()} questions",
+                "expected": f"{expected_rows} rows, {expected_prompts} prompts, {expected_questions} questions",
+                "status": "pass"
+                if len(responses) == expected_rows
+                and responses["prompt_no"].nunique() == expected_prompts
+                and responses["question_no"].nunique() == expected_questions
+                else "review",
+            }
+        )
+
+    coefs = pd.read_csv(root / "tables" / "covid_coefficients.csv")
+    meta = pd.read_csv(prompt_bank_path("covid", root), encoding="utf-8-sig")[["issue_no", "reverse_code"]].drop_duplicates()
+    classified = coefs.merge(meta, on="issue_no", how="left")
+    classified["expected_direction"] = classified["issue_no_key"].round(1).map(EXPECTED_DIRECTION_OVERRIDES)
+    classified.loc[classified["expected_direction"].isna() & classified["reverse_code"].eq(0), "expected_direction"] = "liberal"
+    classified.loc[classified["expected_direction"].isna() & classified["reverse_code"].eq(1), "expected_direction"] = "conservative"
+    classified["derived_forecast_result"] = classified.apply(classify, axis=1)
+    observed = classified["derived_forecast_result"].value_counts().to_dict()
+    rows.append(
+        {
+            "check": "covid_forecast_counts_from_reverse_code",
+            "observed": str({key: int(observed.get(key, 0)) for key in ["correct", "wrong", "no_effect"]}),
+            "expected": str(MANUSCRIPT_COUNTS),
+            "status": "review" if observed != MANUSCRIPT_COUNTS else "pass",
+        }
+    )
+
+    out = pd.DataFrame(rows)
+    write_csv(out, root / "tables" / "consistency_checks.csv")
+    write_csv(classified, root / "tables" / "covid_coefficients_with_consistency_check.csv")
+    write_json(
+        {
+            "note": (
+                "The automatic reverse_code-based correctness check is intentionally conservative. "
+                "A review status means the regenerated coefficient directions are structurally valid, "
+                "but the automatic rule plus documented keyword-level overrides does not exactly reproduce "
+                "the manuscript's final manual correct/wrong coding."
+            )
+        },
+        root / "tables" / "consistency_checks_notes.json",
+    )
+
+
+if __name__ == "__main__":
+    main()

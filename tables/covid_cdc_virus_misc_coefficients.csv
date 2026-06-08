@@ -1,0 +1,14 @@
+issue_no_key,question_no,issue_no,keyword,ending,end_type,label_1,label_2,coef,se,n,ci_low,ci_high,direction
+33.1,160,33,the CDC," In my opinion, the CDC is",In my opinion...,doing a good job,doing a bad job,0.034354551554281146,0.0037664943315154757,1000,0.026896892777880505,0.04181221033068179,liberal
+33.1,161,33,the CDC, I think the CDC is,I think...,doing a good job,doing a bad job,0.005989832314924129,0.0031304360946074064,1000,-0.00020843115239853587,0.012188095782246795,no_effect
+33.1,162,33,the CDC, I believe that the CDC is,I believe that...,doing a good job,doing a bad job,0.02089993345072021,0.0030232852569528276,1000,0.014913828641953612,0.026886038259486808,liberal
+34.1,163,34,the CDC," In my opinion, the CDC is",In my opinion...,exaggerating the danger,not exaggerating the danger,-0.0028416954407900433,0.0015642823365382104,1000,-0.0059389744671356996,0.0002555835855556133,no_effect
+34.1,164,34,the CDC, I think the CDC is,I think...,exaggerating the danger,not exaggerating the danger,-0.005306104353896292,0.0012271696062761829,1000,-0.0077359001743231345,-0.00287630853346945,conservative
+34.1,165,34,the CDC, I believe that the CDC is,I believe that...,exaggerating the danger,not exaggerating the danger,-0.0048706167659294435,0.0013877011966214707,1000,-0.0076182651352399555,-0.0021229683966189315,conservative
+35.1,166,35,the virus," In my opinion, the virus is",In my opinion...,dangerous,not dangerous,-0.0033944834331016086,0.0024531810509375584,1000,-0.008251781913957975,0.0014628150477547569,no_effect
+35.1,167,35,the virus, I think the virus is,I think...,dangerous,not dangerous,-0.003976872897605394,0.0018014282065467368,1000,-0.007543700746567933,-0.0004100450486428549,conservative
+35.1,168,35,the virus, I believe that the virus is,I believe that...,dangerous,not dangerous,-0.005592656048962533,0.0020988153403262706,1000,-0.009748310422808548,-0.0014370016751165176,conservative
+38.1,175,38,, I think the virus orignated in,I think...,a lab,an animal,-0.0020597876164069606,0.002834662785925024,1000,-0.007672419932538508,0.0035528446997245867,no_effect
+38.1,176,38,, I believe that the virus originated in,I believe that...,a lab,an animal,0.0008697361121753622,0.002310105509169747,1000,-0.003704272795980737,0.005443745020331461,no_effect
+39.1,177,39,, I think the virus orignated in,I think...,a lab,an animal,-0.006604285514994521,0.0026067568576416283,1000,-0.011765664093124944,-0.0014429069368640966,conservative
+39.1,178,39,, I believe that the virus originated in,I believe that...,a lab,an animal,0.00024002027653026448,0.002076142165123585,1000,-0.0038707412104144337,0.004350781763474963,no_effect

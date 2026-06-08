@@ -1,0 +1,41 @@
+﻿issue_no,prompt,keywords,endings,labels,topic_no,reverse_code
+0,There is a lot of controversy around whether government workers should be required to receive the COVID-19 vaccine before returning to work.,requiring government workers to get the vaccine,"0,1,2,3","good idea,bad idea",0,0
+1,There is a lot of controversy around whether government workers should be allowed to return to work without getting the COVID-19 vaccine.,allowing government workers to return to work without getting the vaccine,"0,1,2,3","good idea,bad idea",0,1
+2,There is a lot of controversy around whether students should be required to receive the COVID-19 vaccine before returning to school.,requiring students to get the vaccine,"0,1,2,3","good idea,bad idea",1,0
+3,There is a lot of controversy around whether students should be allowed to return to school without getting the COVID-19 vaccine.,allowing students to return to school without getting the vaccine,"0,1,2,3","good idea,bad idea",1,1
+9,There is a lot of controversy around whether we should reopen schools without requiring students to be vaccinated.,opening schools without a vaccine requirement,"0,1,2,3","good idea,bad idea",1,1
+4,There is a lot of controversy around whether people should have to present proof of COVID-19 vaccination in order to travel by plane.,requiring proof of vaccination to travel by plane,"0,1,2,3","good idea,bad idea",2,0
+5,There is a lot of controversy around whether people should have to present proof of COVID-19 vaccination in order to enter bars or restaurants.,requiring proof of vaccination to enter bars or restaurants,"0,1,2,3","good idea,bad idea",2,0
+6,There is a lot of controversy around whether people should have to present proof of COVID-19 vaccination in order to attend large public gatherings.,requiring proof of vaccination to attend large public gatherings,"0,1,2,3","good idea,bad idea",2,0
+7,There is a lot of controversy around whether people who have not received the COVID-19 vaccine should be allowed to enter bars and restaurants.,allowing unvaccinated people to enter bars and restaurants,"0,1,2,3","good idea,bad idea",2,1
+8,There is a lot of controversy around whether people who have not received the COVID-19 vaccine should be allowed to travel by plane.,allowing unvaccinated people to travel by plane,"0,1,2,3","good idea,bad idea",2,1
+15,There is a lot of controversy around whether we should keep schools open.,"keeping schools open,closing schools","0,1,2,3","good idea,bad idea",3,1
+16,There is a lot of controversy around whether schools should close and conduct all instruction online until infection rates go down.,"switching to remote schooling,closing schools and conducting classes online","0,1,2,3","good idea,bad idea",3,0
+10,There is a lot of controversy around whether businesses should be closed until rates of infection go down.,closing businesses until infection rates go down,"0,1,2,3","good idea,bad idea",4,0
+11,There is a lot of controversy around whether bars and restaurants should be closed until rates of infection go down.,closing bars and restaurants until infection rates go down,"0,1,2,3","good idea,bad idea",4,0
+12,There is a lot of controversy around whether large public gatherings should be prohibited until rates of infection go down.,prohibiting large gatherings until infection rates go down,"0,1,2,3","good idea,bad idea",4,0
+13,There is a lot of controversy around whether small gatherings should be avoided until rates of infection go down.,avoiding small gatherings until infection rates go down,"0,1,2,3","good idea,bad idea",4,0
+14,There is a lot of controversy around whether businesses should remain open.,"keeping businesses open,closing businesses","0,1,2,3","good idea,bad idea",4,1
+17,There is a lot of controversy around whether individuals should be required to wear face masks to slow the spread of the virus.,"a mask mandate,a mask requirement","0,1,2,3","good idea,bad idea",5,0
+21,There is a lot of controversy around whether we should end all mask mandates immediately.,ending mask mandates,"0,1,2,3","good idea,bad idea",5,1
+18,There is a lot of controversy around whether stores and workplaces should require people to wear masks to slow the spread of the virus.,"requiring masks in stores and workplaces,mandating masks in stores and workplaces","0,1,2,3","good idea,bad idea",6,0
+19,There is a lot of controversy around whether or not students should be required to wear face masks when in school.,"requiring masks in schools,mandating masks in schools","0,1,2,3","good idea,bad idea",6,0
+20,There is a lot of controversy around whether individuals should be required to receive the COVID-19 vaccine to slow the spread of the virus.,"a vaccine mandate,a vaccine requirement","0,1,2,3","good idea,bad idea",7,0
+22,There is a lot of controversy around whether we should end all COVID-19 vaccine mandates immediately.,ending vaccine mandates,"0,1,2,3","good idea,bad idea",7,1
+23,There is a lot of controversy around whether we should stop accepting visitors from countries that have experienced COVID-19 outbreaks.,banning visitors from countries with COVID-19 outbreaks,"0,1,2,3","good idea,bad idea",8,1
+24,There is a lot of controversy around whether we should stop international travel to slow the spread of the virus.,stopping international travel,"0,1,2,3","good idea,bad idea",8,1
+25,There is a lot of controversy around whether government workers should be able to opt-out of getting the COVID-19 vaccine.,letting government workers opt-out of the vaccine,"0,1,2,3","good idea,bad idea",9,1
+26,There is a lot of controversy around whether students should be able to opt-out of getting the COVID-19 vaccine.,letting students opt-out of the vaccine,"0,1,2,3","good idea,bad idea",9,1
+27,There is a lot of controversy around whether the decision to wear a face mask should be left to the individual.,"letting people decide whether or not to wear a mask,letting individuals choose whether or not to mask","0,1,2,3","good idea,bad idea,personal choice,public health issue",10,1
+28,There is a lot of controversy around whether the decision to receive the COVID-19 vaccine should be left to the individual.,"letting people decide whether or not to get vaccinated,letting individuals choose whether or not to get the vaccine","0,1,2,3","good idea,bad idea,personal choice,public health issue",11,1
+29,There is a lot of controversy around whether or not to wear a face mask to slow the spread of the virus.,None,"4,5","wear a mask,not wear a mask",12,0
+30,There is a lot of controversy around whether or not to wear a face mask to protect yourself from the virus.,None,"4,5","wear a mask,not wear a mask",12,0
+31,There is a lot of controversy around whether or not to get the new COVID-19 vaccine to slow the spread of the virus.,None,"4,5","get the vaccine,not get the vaccine",13,0
+32,There is a lot of controversy around whether or not to get the new COVID-19 vaccine to protect yourself from the virus.,None,"4,5","get the vaccine,not get the vaccine",13,0
+33,There is a lot of controversy around whether the CDC is doing a good job in handling the situation.,the CDC,"6,7,8","doing a good job,doing a bad job",14,0
+34,There is a lot of controversy around whether the CDC is exaggerating the danger posed by the virus.,the CDC,"6,7,8","exaggerating the danger,not exaggerating the danger",14,1
+35,There is a lot of controversy around whether the virus is something we should be afraid of.,the virus,"6,7,8","dangerous,not dangerous",15,0
+36,There is a lot of controversy around whether wearing face masks in public places should be optional or mandatory.,face masks,"9,10,11,12","mandatory,optional",16,0
+37,There is a lot of controversy around whether or not surgical face masks are an effective way to slow the spread of the virus.,face masks,"13,14","effective,not effective",17,0
+38,There is a lot of controversy around whether the virus originated in a wild animal or in a laboratory.,None,"15,16","a lab,an animal",18,1
+39,"The first cases appeared in China, and there is a lot of controversy around whether the virus originated in a wild animal or in a laboratory.",None,"15,16","a lab,an animal",18,1
