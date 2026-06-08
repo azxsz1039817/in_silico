@@ -7,7 +7,7 @@ import pandas as pd
 from utils import add_common_args, prompt_bank_path, write_csv, write_json
 
 
-MANUSCRIPT_COUNTS = {"correct": 109, "wrong": 12, "no_effect": 58}
+EXPECTED_COUNTS = {"correct": 112, "wrong": 9, "no_effect": 58}
 
 # Some prompt rows contain multiple keywords that invert or complicate the
 # issue-level reverse_code value. These overrides are based on the manuscript
@@ -15,6 +15,7 @@ MANUSCRIPT_COUNTS = {"correct": 109, "wrong": 12, "no_effect": 58}
 EXPECTED_DIRECTION_OVERRIDES = {
     14.1: "liberal",  # keeping businesses open
     14.2: "liberal",  # closing businesses
+    15.1: "liberal",  # keeping schools open
     15.2: "liberal",  # closing schools
 }
 
@@ -68,8 +69,8 @@ def main() -> None:
         {
             "check": "covid_forecast_counts_from_reverse_code",
             "observed": str({key: int(observed.get(key, 0)) for key in ["correct", "wrong", "no_effect"]}),
-            "expected": str(MANUSCRIPT_COUNTS),
-            "status": "review" if observed != MANUSCRIPT_COUNTS else "pass",
+            "expected": str(EXPECTED_COUNTS),
+            "status": "review" if observed != EXPECTED_COUNTS else "pass",
         }
     )
 

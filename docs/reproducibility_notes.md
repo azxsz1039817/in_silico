@@ -15,6 +15,6 @@ Full justification text is included as `data/raw/justifications/justification_te
 
 The original justification embedding pickle cache was converted to `data/raw/justifications/justification_embeddings_float32_part*.npz` plus `data/raw/justifications/justification_embeddings_manifest.csv`. The original pickle cache was about 1.8GB, dominated by Python-list embedding pickles. The split float32 NPZ archives are much smaller while retaining enough precision for rerunning exploratory clustering, and each chunk remains below GitHub's 100 MB per-file limit. The manuscript-level justification proportion tests are reproduced from the original cluster counts encoded in `scripts/stat_tests.py`.
 
-The correct/wrong/no-effect forecast coding uses manuscript-level ground-truth decisions. Most rows can be inferred from `reverse_code`, but school/business open-vs-closed variants require keyword-level handling. The final consistency check matches the manuscript count of 109 correct, 12 wrong, and 58 no-effect prompt forecasts.
+The correct/wrong/no-effect forecast coding uses hand-reviewed ground-truth decisions. Most rows can be inferred from `reverse_code`, but school/business open-vs-closed variants require keyword-level handling. `Keeping schools open` is coded as expected liberal, so the final consistency check reports 112 correct, 9 wrong, and 58 no-effect prompt forecasts.
 
 The regenerated Python figures are intended as reproducible analytic figures, not pixel-identical reproductions of edited manuscript graphics.

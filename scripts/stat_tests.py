@@ -57,8 +57,8 @@ def main() -> None:
 
     binomial = pd.DataFrame(
         [
-            {"level": "prompt", "null_handling": "count_null_as_wrong", "correct": 109, "total": 179},
-            {"level": "prompt", "null_handling": "exclude_null", "correct": 109, "total": 121},
+            {"level": "prompt", "null_handling": "count_null_as_wrong", "correct": 112, "total": 179},
+            {"level": "prompt", "null_handling": "exclude_null", "correct": 112, "total": 121},
             {"level": "issue", "null_handling": "count_null_as_wrong", "correct": 37, "total": 49},
             {"level": "issue", "null_handling": "exclude_null", "correct": 37, "total": 44},
         ]

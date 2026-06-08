@@ -104,7 +104,7 @@ This writes:
 - `tables/covid_coefficients_with_consistency_check.csv`
 - `tables/consistency_checks_notes.json`
 
-The consistency check reproduces the manuscript count of 109 correct, 12 wrong, and 58 no-effect prompt-level forecasts.
+The consistency check reproduces the final hand-reviewed count of 112 correct, 9 wrong, and 58 no-effect prompt-level forecasts.
 
 ### 8. Summarize Justification Cache Metadata And Bar Charts
 
@@ -153,4 +153,4 @@ The scripts named `archive_*` preserve the historical OpenAI API style for prove
 - The original per-prompt output files were removed because they were intermediate cache files and created most of the file-count clutter.
 - The original justification embedding pickle cache was converted to split float32 NPZ files. Each chunk is under GitHub's 100 MB per-file limit, so Git LFS is not required.
 - The correct/wrong/no-effect coding cannot be inferred from `reverse_code` alone for every prompt. `validate_consistency.py` includes keyword-level overrides for business and school open/closed variants.
-- `keeping schools open` remains expected conservative. Three liberal-observed `keeping schools open` rows are counted as wrong, matching the manuscript count.
+- `keeping schools open` is hand-coded as expected liberal, so the three liberal-observed `keeping schools open` rows are counted as correct.

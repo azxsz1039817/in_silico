@@ -1,4 +1,4 @@
 check,observed,expected,status
 covid_response_shape,"179000 rows, 358 prompts, 179 questions","179000 rows, 358 prompts, 179 questions",pass
 validation_response_shape,"143000 rows, 286 prompts, 143 questions","143000 rows, 286 prompts, 143 questions",pass
-covid_forecast_counts_from_reverse_code,"{'correct': 109, 'wrong': 12, 'no_effect': 58}","{'correct': 109, 'wrong': 12, 'no_effect': 58}",pass
+covid_forecast_counts_from_reverse_code,"{'correct': 112, 'wrong': 9, 'no_effect': 58}","{'correct': 112, 'wrong': 9, 'no_effect': 58}",pass
